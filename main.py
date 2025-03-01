@@ -253,11 +253,7 @@ def push_to_push_plus(exec_results, summary):
                 else:
                     html += f'<li><span>账号：{exec_result["user"]}</span>刷步数失败，失败原因：{exec_result["msg"]}</li>'
             html += '</ul>'
-        # push_plus(f"{format_now()} 刷步数通知", html)
-        # 使用 \n 换行符并在传入 push_plus 之前替换为 <br>
-        content = f"{format_now()} \n刷步数通知"
-        html_content = content.replace('\n', '<br>')
-        push_plus(html_content, html)
+        push_plus(f"{format_now()} 刷步数通知", html)
         
 
 
