@@ -38,7 +38,7 @@ def get_min_max_by_time(hour=None, minute=None):
     if minute is None:
         minute = time_bj.minute
     time_rate = min((hour * 60 + minute) / (22 * 60), 1)
-    min_step = get_int_value_default(config, 'MIN_STEP', 18000)
+    min_step = get_int_value_default(config, 'MIN_STEP', 19600)
     max_step = get_int_value_default(config, 'MAX_STEP', 25000)
     return int(time_rate * min_step), int(time_rate * max_step)
 
@@ -249,7 +249,7 @@ def push_to_push_plus(exec_results, summary):
                 success = exec_result['success']
                 if success is not None and success is True:
                     # html += f'<li><span>账号：{exec_result["user"]}</span>刷步数成功，接口返回：{exec_result["msg"]}</li>'
-                    html += f'<li><span>{exec_result["user"]}</span>的账号，目前步数：{exec_result["msg"].split("（")[1].split("）")[0]}</li>'
+                    html += f'<li><span>账号{exec_result["user"]}</span>，目前步数：{exec_result["msg"].split("（")[1].split("）")[0]}</li>'
                 else:
                     html += f'<li><span>账号：{exec_result["user"]}</span>刷步数失败，失败原因：{exec_result["msg"]}</li>'
             html += '</ul>'
